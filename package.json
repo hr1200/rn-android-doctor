@@ -1,0 +1,46 @@
+{
+  "name": "hamza-rn-doctor",
+  "version": "0.1.0",
+  "description": "React Native Android diagnostic CLI (rule-based, AI optional)",
+  "type": "module",
+  "bin": {
+    "rn-doctor": "./dist/cli.js",
+    "rn-doc": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "dev": "node src/cli.js",
+    "build": "tsup src/cli.js --format esm --platform node --target node18 --out-dir dist --clean",
+    "prepublishOnly": "npm run build",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "ci": "npm run lint && npm run typecheck && npm test && npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.6.2",
+    "cli-table3": "^0.6.5",
+    "commander": "^14.0.2",
+    "fast-glob": "^3.3.3",
+    "fs-extra": "^11.3.2",
+    "log-symbols": "^7.0.1",
+    "ora": "^9.0.0",
+    "semver": "^7.7.3",
+    "strip-ansi": "^7.1.2"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^25.0.2",
+    "eslint": "^9.39.2",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.15"
+  }
+}
